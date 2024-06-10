@@ -5,7 +5,7 @@ require_once(__DIR__ . '/../classes/admin.php');
 class adminDAO{
     //Função para cadastra um novo cliente.
     public function criar(Admin $admin){
-        $sql = 'INSERT INTO usuario.admin (nome, email, senha) values (?, ?, ?)';
+        $sql = 'INSERT INTO usuario.admin (nome, email, senha) VALUES (?, ?, ?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $admin->getId());
         $stmt->bindValue(2, $admin->getNome());
@@ -26,7 +26,7 @@ class adminDAO{
 
     //Função para atualizar os endereços cadastrados.
     public function atualizar($id, $nome, $email, $senha){
-        $sql = 'atualizar usuario.admin SET nome = :nome, email = :email, senha = :senha WHERE id = :id';
+        $sql = 'UPDATE usuario.admin SET nome = :nome, email = :email, senha = :senha WHERE id = :id';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(':nome', $nome, PDO::PARAM_STR);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
@@ -37,7 +37,7 @@ class adminDAO{
 
     //Função para excluir o usuario cadastrado.
     public function deletar($id){
-        $sql = 'deletar FROM usuario.admin WHERE id = :id';
+        $sql = 'DELETE FROM usuario.admin WHERE id = :id';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();

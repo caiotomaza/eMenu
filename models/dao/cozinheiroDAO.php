@@ -5,7 +5,7 @@ require_once(__DIR__ . '/../classes/cozinheiro.php');
 class cozinheiroDAO{
     //Função para cadastra um novo cliente.
     public function criar(Cozinheiro $cozinheiro){
-        $sql = 'INSERT INTO usuario.cozinheiro (nome, email, senha) values (?, ?, ?)';
+        $sql = 'INSERT INTO usuario.cozinheiro (nome, email, senha) VALUES (?, ?, ?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $cozinheiro->getId());
         $stmt->bindValue(2, $cozinheiro->getNome());
@@ -26,7 +26,7 @@ class cozinheiroDAO{
 
     //Função para atualizar os endereços cadastrados.
     public function atualizar($id, $nome, $email, $senha){
-        $sql = 'atualizar usuario.cozinheiro SET nome = :nome, email = :email, senha = :senha WHERE id = :id';
+        $sql = 'UPDATE usuario.cozinheiro SET nome = :nome, email = :email, senha = :senha WHERE id = :id';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(':nome', $nome, PDO::PARAM_STR);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
@@ -37,7 +37,7 @@ class cozinheiroDAO{
 
     //Função para excluir o usuario cadastrado.
     public function deletar($id){
-        $sql = 'deletar FROM usuario.cozinheiro WHERE id = :id';
+        $sql = 'DELETE FROM usuario.cozinheiro WHERE id = :id';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();

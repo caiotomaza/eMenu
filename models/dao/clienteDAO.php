@@ -5,7 +5,7 @@ require_once(__DIR__ . '/../classes/cliente.php');
 class clienteDAO{
     //Função para cadastra um novo cliente.
     public function criar(Cliente $cliente){
-        $sql = 'INSERT INTO usuario.cliente (nome, email, senha) values (?, ?, ?)';
+        $sql = 'INSERT INTO usuario.cliente (nome, email, senha) VALUES (?, ?, ?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $cliente->getId());
         $stmt->bindValue(2, $cliente->getNome());
@@ -15,7 +15,7 @@ class clienteDAO{
 
     //Função para realizar um novo pedido.
     public function criar_pedido(Cliente $cliente){
-        $sql = 'INSERT INTO usuario.cliente (nome, email, senha) values (?, ?, ?)';
+        $sql = 'INSERT INTO usuario.cliente (nome, email, senha) VALUES (?, ?, ?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $cliente->getId());
         $stmt->bindValue(2, $cliente->getNome());
@@ -25,7 +25,7 @@ class clienteDAO{
 
     //Função para atualizar os pedidos cadastrados.
     public function atualizar_pedido($id, $nome, $email, $senha){
-        $sql = 'atualizar usuario.cliente SET nome = :nome, email = :email, senha = :senha WHERE id = :id';
+        $sql = 'UPDATE usuario.cliente SET nome = :nome, email = :email, senha = :senha WHERE id = :id';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(':nome', $nome, PDO::PARAM_STR);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
@@ -47,7 +47,7 @@ class clienteDAO{
 
     //Função para atualizar os endereços cadastrados.
     public function atualizar($id, $nome, $email, $senha){
-        $sql = 'atualizar usuario.cliente SET nome = :nome, email = :email, senha = :senha WHERE id = :id';
+        $sql = 'UPDATE usuario.cliente SET nome = :nome, email = :email, senha = :senha WHERE id = :id';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(':nome', $nome, PDO::PARAM_STR);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
@@ -58,7 +58,7 @@ class clienteDAO{
 
     //Função para excluir o usuario cadastrado.
     public function deletar($id){
-        $sql = 'deletar FROM usuario.cliente WHERE id = :id';
+        $sql = 'DELETE FROM usuario.cliente WHERE id = :id';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();

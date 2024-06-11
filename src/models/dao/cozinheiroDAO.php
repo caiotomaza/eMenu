@@ -1,6 +1,6 @@
 <?php 
-require_once(__DIR__ . '/../database/conexao.php');
-require_once(__DIR__ . '/../classes/cozinheiro.php');
+require_once __DIR__ . '/../database/conexao.php';
+use Caio\eMenu\classes\cozinheiro; //Solicita o namespace do codigo da pasta especifica necessaria (pode usar o "require_once'';" mais eu opinei por namespace pra ser mais POO e psr);
 
 class cozinheiroDAO{
     //Função para cadastra um novo cliente.

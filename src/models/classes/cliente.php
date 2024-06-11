@@ -1,7 +1,8 @@
 <?php
-require_once('usuario.php');
+namespace Caio\eMenu\classes;
+require_once "usuario.php";
 
-class admin extends usuario{
+class cliente extends usuario{
     public function __construct($id, $nome, $email, $senha){
         $this-> id = $id;
         $this-> nome = $nome;

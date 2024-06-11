@@ -1,4 +1,6 @@
 <?php
+namespace Caio\eMenu\classes;
+
 abstract class usuario{
     protected $id;
     protected $nome;

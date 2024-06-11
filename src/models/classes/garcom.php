@@ -1,7 +1,7 @@
 <?php
-require_once('usuario.php');
+namespace Caio\eMenu\classes;
 
-class cliente extends usuario{
+class garcom extends usuario{
     public function __construct($id, $nome, $email, $senha){
         $this-> id = $id;
         $this-> nome = $nome;

@@ -1,39 +1,39 @@
---criar DATABASE emenu;
+--create DATABASE emenu;
 
 DROP SCHEMA public;
-criar SCHEMA usuario;
-criar SCHEMA itens;
-criar SCHEMA pedidos;
+CREATE SCHEMA usuario;
+CREATE SCHEMA itens;
+CREATE SCHEMA pedidos;
 
-criar TABLE usuario.cliente(
+CREATE TABLE usuario.cliente(
     id serial not null primary key,
     nome varchar(40) not null,
     email varchar(40) not null,
     senha varchar(40) not null
 );
 
-criar TABLE usuario.garcom(
+CREATE TABLE usuario.garcom(
     id serial not null primary key,
     nome varchar(40) not null,
     email varchar(40) not null,
     senha varchar(40) not null
 );
 
-criar TABLE usuario.cozinheiro(
+CREATE TABLE usuario.cozinheiro(
     id serial not null primary key,
     nome varchar(40) not null,
     email varchar(40) not null,
     senha varchar(40) not null
 );
 
-criar TABLE usuario.admin(
+CREATE TABLE usuario.admin(
     id serial not null primary key,
     nome varchar(40) not null,
     email varchar(40) not null,
     senha varchar(40) not null
 );
 
-criar TABLE itens.iten(
+CREATE TABLE itens.iten(
     id serial not null primary key,
     nome varchar(40),
     peso numeric(5,2), -- em kg
@@ -42,7 +42,7 @@ criar TABLE itens.iten(
     valro numeric(5,2)
 );
 
-criar table pedidos.pedido(
+CREATE table pedidos.pedido(
     id serial not null primary key,
     id_cliente integer,
     id_iten integer,
